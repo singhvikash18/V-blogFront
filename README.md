@@ -35,21 +35,8 @@ cd react-blog-app
 npm install
 ```
 
-### 2. Environment Setup
 
-Create a `.env` file in the project root:
 
-```bash
-# MongoDB Configuration
-MONGODB_URI=mongodb+srv://vikashkumarsingh9811:18nov1998V@ndc-crm.iz0or.mongodb.net/
-DATABASE_NAME=blogdb
-
-# JWT Secret (change this to a secure random string in production)
-JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
-
-# Server Configuration
-PORT=5000
-```
 
 ### 3. Run the Application
 
@@ -89,10 +76,6 @@ If you want to use MongoDB Data API instead of the Express backend:
    - Copy the API Key and App ID
 
 
-## Demo Login Credentials
-
-- **Email**: `admin@example.com`
-- **Password**: `admin123`
 
 ## Project Structure
 
