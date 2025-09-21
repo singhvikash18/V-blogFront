@@ -33,6 +33,12 @@ const BlogList: React.FC<BlogListProps> = ({ refreshTrigger }) => {
     fetchPosts();
   }, [refreshTrigger, selectedCategory]);
 
+  useEffect(() => {
+    if (window && (window as any).AOS) {
+      (window as any).AOS.refresh();
+    }
+  }, [posts]);
+
   const handleDelete = async (id: string) => {
     if (!window.confirm('Are you sure you want to delete this blog post?')) {
       return;
@@ -127,10 +133,14 @@ const BlogList: React.FC<BlogListProps> = ({ refreshTrigger }) => {
         </div>
       ) : (
         <div className="space-y-6">
-          {posts.map((post) => (
+          {posts.map((post, idx) => (
             <div
               key={post._id}
               className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition duration-200 cursor-pointer group"
+              data-aos={idx % 2 === 0 ? "fade-left" : "fade-right"}
+              data-aos-anchor="#example-anchor"
+              data-aos-offset="500"
+              data-aos-duration="500"
             >
               <div className="flex items-start justify-between">
                 <div className="flex-1" onClick={() => navigate(`/blog/${post._id}`)}>
